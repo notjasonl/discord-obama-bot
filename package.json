@@ -1,0 +1,24 @@
+{
+  "name": "obama-bot-two-electric-boogaloo",
+  "version": "1.0.0",
+  "description": "obama bot two",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notjasonl/obama-bot-two-electric-boogaloo.git"
+  },
+  "author": "Jason Liu",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/notjasonl/obama-bot-two-electric-boogaloo/issues"
+  },
+  "homepage": "https://github.com/notjasonl/obama-bot-two-electric-boogaloo#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "discord.js": "^12.3.1",
+    "node-fetch": "^2.6.1"
+  }
+}
