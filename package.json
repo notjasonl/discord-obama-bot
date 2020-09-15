@@ -2,8 +2,9 @@
   "name": "obama-bot-two-electric-boogaloo",
   "version": "1.0.0",
   "description": "obama bot two",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
+    "start": "tsc && node bin/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,12 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "discord.js": "^12.3.1",
-    "node-fetch": "^2.6.1"
+    "dotenv": "^8.2.0",
+    "lowdb": "^1.0.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/lowdb": "^1.0.9",
+    "@types/npm": "^2.0.31"
   }
 }
