@@ -1,7 +1,9 @@
-import Discord from "discord.js"
+import Discord, { TextChannel } from "discord.js"
 import winston from "winston"
 import dotenv from "dotenv"
 import TrebWordHandler from "./handlers/TrebWordHandler";
+import ResponseHandler from "./handlers/ResponseHandler";
+import URLHandler from "./handlers/URLHandler";
 
 dotenv.config()
 
@@ -42,17 +44,29 @@ class Bot {
                 this.client.user.setPresence({activity: {name: `with kids :) | ${version}`}, status: 'online'})
                     .catch(e => winston.error(`Error setting presence\n${e}`))
             } else console.error("Not logged in")
+            
         })
-
+        
         const msgHandlers = [
-            new TrebWordHandler()
+            new TrebWordHandler(),
+            new ResponseHandler(),
+            new URLHandler()
         ]
 
+        // const voiceHandlers = [
+        //     new
+        // ]
+
         this.client.on("message", msg => {
-            Promise.all(msgHandlers.map(handler => handler.handleMessage(msg)))
+            Promise.all(msgHandlers.map(handler => handler.handleMessage(msg, this.client)))
         })
 
+        // this.client.on("voiceStateUpdate", (oldState, newState) => {
+        //     Promise.all(voiceHandlers.map(handler => handler.handleEvent(oldState, newState)))
+        // })
+
         this.login().catch(e =>  winston.error(`Error logging in\n${e}`))
+        
     }
 
     async login() {

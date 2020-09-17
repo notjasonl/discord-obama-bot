@@ -105,4 +105,7 @@ dist
 
 config/config.json
 config/responses.json
+config/slow.json
+config/words_that_are_n.json
 .idea/
+bin/
