@@ -36,16 +36,8 @@ export default class URLHandler implements Handler {
                     const videoHost = videoObj.host
                     fetch(videoUrl, {
                         headers: {
-                            "Cache-Control": "no-cache",
-                            "Accept": "*/*",
-                            "Accept-Language": "en-US,en;q=0.9",
-                            "Accept-Encoding": "identity;q=1, *;q=0",
-                            "Range": "bytes=0-",
-                            "Connection": "keep-alive",
+                            "User-Agent": "PostmanRuntime/7.26.5",
                             "Host": videoHost,
-                            "Sec-Fetch-Site": "cross-site",
-                            "Sec-Fetch-Mode": "no-cors",
-                            "Sec-Fetch-Dest": "video",
                             "Referer": referer
                         }
                     })
@@ -66,5 +58,19 @@ export default class URLHandler implements Handler {
             
             // msg.channel.send("fuck you")
         }
+    }
+
+    async getVideo(url: string, referUrl: string, host: string): Promise<void> {
+        fetch(url, {
+            headers: {
+                "User-Agent": "PostmanRuntime/7.26.5",
+                "Host": host,
+                "Referer": referUrl
+            }
+        })
+            .then(res => res.buffer())
+            .then(video => {
+                return video
+            })
     }
 }
